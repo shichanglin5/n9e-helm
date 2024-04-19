@@ -306,9 +306,7 @@ app: "{{ template "nightingale.name" . }}"
 {{- end -}}
 
 {{- define "nightingale.nginx.enabled" -}}
-  {{- if and (ne .Values.expose.type "ingress") .Values.nginx.enabled }}
+  {{- if and (ne .Values.expose.type "ingress") (.Values.nginx.enabled) }}
     {{- true -}}
-  {{- else -}}
-    {{- false -}}
   {{- end -}}
 {{- end -}}
